@@ -4,72 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meher Bano - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #4a42e8;
+            --dark: #2f2e41;
+            --light: #f8f9fa;
+            --accent: #ff6584;
+            --gray: #6c757d;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: var(--dark);
+            background-color: #f5f7ff;
         }
+        
         .container {
             max-width: 1100px;
             margin: auto;
             padding: 0 20px;
         }
+        
         header {
-            background: #35424a;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
-            padding: 20px 0;
+            padding: 40px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.1;
+        }
+        
         header h1 {
             margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
         }
+        
         header p {
-            margin: 5px 0 0;
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
         }
+        
+        .header-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .header-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .header-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
         nav {
-            background: #e8491d;
-            padding: 10px 0;
+            background: var(--dark);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+        
         nav ul {
             padding: 0;
             list-style: none;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+        
         nav ul li a {
             color: #fff;
             text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
+        
+        nav ul li a:hover, nav ul li a:focus {
+            background: rgba(255,255,255,0.1);
+            color: var(--accent);
+        }
+        
         section {
-            padding: 40px 0;
-            border-bottom: 1px solid #e1e1e1;
+            padding: 50px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+        
+        section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        section h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
+        
         .skill {
-            background: #e8491d;
-            color: #fff;
-            padding: 5px 10px;
+            background: #fff;
+            color: var(--dark);
+            padding: 10px 15px;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
+        
+        .skill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 1.2rem;
+        }
+        
+        .java { color: #007396; }
+        .python { color: #3776AB; }
+        .scikit { color: #F7931E; }
+        .database { color: #336791; }
+        .django { color: #092E20; }
+        .pandas { color: #150458; }
+        .numpy { color: #4D77CF; }
+        .matplotlib { color: #11557C; }
+        .jupyter { color: #F37626; }
+        
         .project {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
             margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
+        
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .project h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        ul li {
+            margin-bottom: 8px;
+        }
+        
         footer {
-            background: #35424a;
+            background: var(--dark);
             color: #fff;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .skills-container {
+                justify-content: center;
+            }
+            
+            .header-links {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -78,22 +243,24 @@
         <div class="container">
             <h1>Meher Bano</h1>
             <p>Business and IT Professional</p>
-            <p>meherbano710@gmail.com | +923180423346 | 
-                <a href="https://www.linkedin.com/in/meher-bano-63528b278/" style="color: #fff;">LinkedIn</a>
-            </p>
+            <div class="header-links">
+                <a href="mailto:meherbano710@gmail.com"><i class="fas fa-envelope"></i> meherbano710@gmail.com</a>
+                <a href="https://www.linkedin.com/in/meher-bano-63528b278/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/MeherBano123" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
         </div>
     </header>
 
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -107,46 +274,49 @@
         <section id="skills">
             <h2>Professional Skills</h2>
             <div class="skills-container">
-                <span class="skill">Java</span>
-                <span class="skill">Python</span>
-                <span class="skill">Scikit-learn</span>
-                <span class="skill">Database Management</span>
-                <span class="skill">Django Rest Framework</span>
-                <span class="skill">Pandas</span>
-                <span class="skill">NumPy</span>
-                <span class="skill">Matplotlib</span>
-                <span class="skill">Jupyter Notebook</span>
+                <span class="skill"><i class="fab fa-java skill-icon java"></i> Java</span>
+                <span class="skill"><i class="fab fa-python skill-icon python"></i> Python</span>
+                <span class="skill"><i class="fas fa-robot skill-icon scikit"></i> Scikit-learn</span>
+                <span class="skill"><i class="fas fa-database skill-icon database"></i> Database Management</span>
+                <span class="skill"><i class="fab fa-python skill-icon django"></i> Django Rest Framework</span>
+                <span class="skill"><i class="fas fa-chart-line skill-icon pandas"></i> Pandas</span>
+                <span class="skill"><i class="fas fa-calculator skill-icon numpy"></i> NumPy</span>
+                <span class="skill"><i class="fas fa-chart-bar skill-icon matplotlib"></i> Matplotlib</span>
+                <span class="skill"><i class="fas fa-book skill-icon jupyter"></i> Jupyter Notebook</span>
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            <h3>Bachelors of Business and IT (Major IT)</h3>
-            <p>IBIT, University of Punjab | 2021 - Present</p>
-            <p>CGPA: 3.73</p>
-            
-            <h3>FSc</h3>
-            <p>Kips College Gulberg Campus | 2020–2021</p>
+            <div class="project">
+                <h3>Bachelors of Business and IT (Major IT)</h3>
+                <p><i class="fas fa-university"></i> IBIT, University of Punjab | 2021 - Present</p>
+                <p><i class="fas fa-star"></i> CGPA: 3.73</p>
+            </div>
         </section>
 
         <section id="experience">
             <h2>Work Experience</h2>
             
-            <h3>Web Development (BackEnd) Internship</h3>
-            <p>Samaritan Technologies Johar Town Lahore | July to September 2024 | Onsite</p>
-            <ul>
-                <li>Development and Testing of APIs</li>
-                <li>DataBase Management</li>
-                <li>Model Development and Integration</li>
-            </ul>
+            <div class="project">
+                <h3>Web Development (BackEnd) Internship</h3>
+                <p><i class="fas fa-building"></i> Samaritan Technologies Johar Town Lahore | July to September 2024 | Onsite</p>
+                <ul>
+                    <li>Development and Testing of APIs</li>
+                    <li>DataBase Management</li>
+                    <li>Model Development and Integration</li>
+                </ul>
+            </div>
             
-            <h3>ML/AI internship</h3>
-            <p>DevelopersHub Corporation Islamabad | March to May 2025 | Online</p>
-            <ul>
-                <li>Analysis and Preprocessing Datasets</li>
-                <li>Model Training</li>
-                <li>Model Evaluation and Improvement</li>
-            </ul>
+            <div class="project">
+                <h3>ML/AI internship</h3>
+                <p><i class="fas fa-building"></i> DevelopersHub Corporation Islamabad | March to May 2025 | Online</p>
+                <ul>
+                    <li>Analysis and Preprocessing Datasets</li>
+                    <li>Model Training</li>
+                    <li>Model Evaluation and Improvement</li>
+                </ul>
+            </div>
         </section>
 
         <section id="projects">
@@ -172,30 +342,36 @@
                 <p>Backend developed with Django Rest Framework.</p>
             </div>
             
-            <h3>Machine Learning and Data Science Projects</h3>
-            <ul>
-                <li>Data Analytics of Super Store Sales Data</li>
-                <li>House Pricing Prediction model Using Scikit-learn</li>
-                <li>Digit Recognizer Using MNIST Dataset</li>
-                <li>Classification Model for Type of Flowers (Using Support Vector Machines)</li>
-                <li>Final Year Project: Heart Disease Detection System Using Supervised Machine Learning</li>
-            </ul>
+            <div class="project">
+                <h3>Machine Learning and Data Science Projects</h3>
+                <ul>
+                    <li>Data Analytics of Super Store Sales Data</li>
+                    <li>House Pricing Prediction model Using Scikit-learn</li>
+                    <li>Digit Recognizer Using MNIST Dataset</li>
+                    <li>Classification Model for Type of Flowers (Using Support Vector Machines)</li>
+                    <li>Final Year Project: Heart Disease Detection System Using Supervised Machine Learning</li>
+                </ul>
+            </div>
         </section>
 
         <section id="certifications">
             <h2>Courses and Certifications</h2>
-            <ul>
-                <li>Work Smarter with MS Excel by Microsoft</li>
-                <li>Tools of Data Science by IBM</li>
-                <li>ML Specialization by Stanford Online and Deeplearning.ai</li>
-            </ul>
+            <div class="project">
+                <ul>
+                    <li><i class="fas fa-certificate"></i> Work Smarter with MS Excel by Microsoft</li>
+                    <li><i class="fas fa-certificate"></i> Tools of Data Science by IBM</li>
+                    <li><i class="fas fa-certificate"></i> ML Specialization by Stanford Online and Deeplearning.ai</li>
+                </ul>
+            </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
-            <p>Email: meherbano710@gmail.com</p>
-            <p>Phone: +923180423346</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/meher-bano-63528b278/">https://www.linkedin.com/in/meher-bano-63528b278/</a></p>
+            <div class="project">
+                <p><i class="fas fa-envelope"></i> Email: meherbano710@gmail.com</p>
+                <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/meher-bano-63528b278/" target="_blank">https://www.linkedin.com/in/meher-bano-63528b278/</a></p>
+                <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/MeherBano123" target="_blank">https://github.com/MeherBano123</a></p>
+            </div>
         </section>
     </div>
 
